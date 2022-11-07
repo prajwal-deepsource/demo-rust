@@ -1,6 +1,9 @@
 #[allow(dead_code)]
-use std::path::Path;
+use std::sync::atomic::AtomicUsize;
 
 fn main() {
-    println!("{}", Path::new("/deepsource/test-rust").display());
+    while 10 > 20 {
+        const ATOM: AtomicUsize = AtomicUsize::new(0);
+        println!("{:?}", ATOM);
+    }
 }
