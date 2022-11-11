@@ -13,3 +13,9 @@ fn main() {
         println!("{:?}", ATOM);
     }
 }
+
+async fn foo() {
+    let t = async {
+        foo().await;
+    };
+}
