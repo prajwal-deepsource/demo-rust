@@ -1,8 +1,22 @@
+use std::ptr;
+
 #[allow(dead_code)]
+struct A {}
+
+impl A {
+    fn default() -> Self {
+        Self {}
+    }
+}
+
 fn main() {
-    let mut v = Vec::<String>::new();
-    v.iter_mut().filter(|&ref a| a.is_empty());
-    for &ref x in [&1] {}
-    for &mut ref mut x in [&mut 1] {}
-    for (i, &ref x) in [1].iter().enumerate() {}
+    let a = i32::default();
+    let b = a.clone();
+    let c = 0 as *const i32;
+    if c != ptr::null() {
+        println!("Not null");
+    }
+    if c == ptr::null() {
+        println!("Null");
+    }
 }
