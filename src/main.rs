@@ -1,22 +1,11 @@
 use std::ptr;
 
-#[allow(dead_code)]
-struct A {}
-
-impl A {
-    fn default() -> Self {
-        Self {}
-    }
-}
-
 fn main() {
-    let a = i32::default();
-    let b = a.clone();
-    let c = 0 as *const i32;
-    if c != ptr::null() {
-        println!("Not null");
+    let a: *const i32 = ptr::null();
+    if a == ptr::null() {
+        println!("Breh");
     }
-    if c == ptr::null() {
-        println!("Null");
+    if a != ptr::null() {
+        println!("Bruh");
     }
 }
