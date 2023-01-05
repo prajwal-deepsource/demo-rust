@@ -1,15 +1,18 @@
-use std::ptr;
-
-#[allow(unused)]
-fn main() {
-    let a: *const i32 = ptr::null();
-    if a == ptr::null() {
-        println!("Breh");
-    }
-    if a != ptr::null() {
-        println!("Bruh");
-    }
-
-    let b = String::new();
-    let c: Vec<i32> = Vec::new();
+struct A {
+    a: i32,
+    b: &'static str,
 }
+
+impl A {
+    fn default() -> A {
+        A { a: 0, b: "Hola" }
+    }
+    fn print_a(&self) {
+        println!("{}", self.a);
+    }
+    fn print_b(&self) {
+        println!("{}", self.b);
+    }
+}
+
+fn main() {}
