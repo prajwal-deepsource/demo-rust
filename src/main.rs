@@ -1,26 +1,34 @@
 use actix_web_lab::web as web_lab;
+use regex;
 
 fn redir_fn(dest: String, other_dest: String) -> web_lab::Redirect {
-    web_lab::redirect("Hello".into(), dest)
+    web_lab::redirect("Hello", dest)
 }
 
 fn redir_struct_method(dest: &str) -> web_lab::Redirect {
     web_lab::Redirect::new("Hello".into(), dest.into())
 }
 
-fn redir_with_cast(dest: &str) -> web_lab::Redirect {
-    web_lab::redirect("Hello".into(), dest as String)
+fn writer_check<W: std::io::Write>(w: &mut W) -> std::io::Result<()> {
+    w.write(b"foo")?;
+    Ok(())
 }
 
-fn no_match_on_field(destTuple: (String, usize)) -> web_lab::Redirect {
-    // Should not raise on this call
-    web_lab::redirect("Hello".into(), dest.0)
+fn random(path: String) {
+    let x = 0 as *const u32;
+    let y = 0 as *mut *const u32;
+    let z = 0 as *mut u32;
+    actix_files::NamedFile::open(path).unwrap();
+    let a: f32 = 0.0;
+    if a == f32::NAN {}
+    if a != f32::NAN {}
 }
 
-fn no_match_used_var(dest: String) -> Option<web_lab::Redirect> {
-    if !valid(dest) {
-        return None;
-    };
-    // Should not raise on this call
-    Some(web_lab::redirect("Hello".into(), dest))
+struct A;
+impl A {
+    fn default() -> Self {
+        Self
+    }
 }
+
+fn main() {}
