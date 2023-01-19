@@ -8,6 +8,6 @@ fn main() {
     "Hello".splitn(2, 'l');
     let a: Rc<String> = Rc::new("hello".to_string());
     let b: Rc<&str> = Rc::new("hello");
-    t.seek(SeekFrom::Start(0));
-    t.seek(SeekFrom::Current(-t.seek_position()));
+    t.rewind();
+    t.rewind();
 }
