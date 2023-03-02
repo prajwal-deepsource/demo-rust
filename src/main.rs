@@ -1,6 +1,10 @@
-enum A {
+pub enum A {
     B(i32),
     C(i32, i32, i32),
+}
+
+pub mod foo {
+    pub fn bar() {}
 }
 
 fn main() {
