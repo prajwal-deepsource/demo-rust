@@ -1,9 +1,12 @@
+/// This is documented
 pub enum A {
     B(i32),
     C(i32, i32, i32),
 }
 
+/// And so is this
 pub mod foo {
+    #[doc(hidden)]
     pub fn bar() {}
 }
 
