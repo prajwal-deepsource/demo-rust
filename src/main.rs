@@ -1,29 +1,99 @@
-/// This is documented
-pub enum A {
-    B(i32),
-    C(i32, i32, i32),
+pub struct A {
+    B {
+        a: i32,
+        b: u32,
+    },
+    pub C: u32,
 }
 
-/// And so is this
-pub mod foo {
+pub enum D {
+    UnitE,
+    E(i32),
+    F(u32),
+}
+
+pub union G {
+    H: i32,
+    pub I: u32,
+}
+
+pub trait TestDocs {
+    const TEST: usize;
+    type Test;
+    fn test();
+}
+
+impl A {
+    pub const TEST: usize = 42;
+    pub fn test() {}
+}
+
+pub static s: &str = "hello world";
+
+pub const ANSWER: usize = 42;
+
+pub type Test = (usize, usize);
+
+pub mod foo;
+
+pub fn test() {}
+
+/// This is a doc comment
+pub struct A {
+    B: i32,
+    /** This is also a doc comment */
+    pub C: u32,
+}
+
+struct privateA {}
+
+#[doc = "This is a doc comment replacement"]
+pub enum D {
+#[doc(hidden)]
+    E(i32),
+    #[doc = "This is a doc comment replacement"]
+    F(u32),
+}
+
+enum privateD {
+    privateE,
+    privateF(u32),
+}
+
+#[doc(hidden)]
+pub union G {
+    H: i32,
     #[doc(hidden)]
-    pub fn bar() {}
+    pub I: u32,
 }
 
-fn main() {
-    match A::B(1) {
-        A::B(_) => println!("Matched"),
-        _ => {
-            println!("else block");
-            return;
-        }
-    }
-    // lint here
-    match A::C(1, 2, 3) {
-        A::C(_, _, _) => println!("Matched"),
-        _ => {
-            println!("else block");
-            return;
-        }
-    }
+union privateE {}
+
+#[doc(hidden)]
+pub trait TestDocs {
+    const TEST: usize;
+    type Test;
+    fn test();
 }
+
+impl A {
+    #[doc(hidden)]
+    pub const TEST: usize = 42;
+    #[doc(hidden)]
+    pub fn test() {}
+}
+
+#[doc(hidden)]
+pub static s: &str = "hello world";
+
+#[doc(hidden)]
+pub const ANSWER: usize = 42;
+
+#[doc(hidden)]
+pub type Test = (usize, usize);
+
+#[doc(hidden)]
+pub mod foo;
+
+#[doc(hidden)]
+pub fn test() {}
